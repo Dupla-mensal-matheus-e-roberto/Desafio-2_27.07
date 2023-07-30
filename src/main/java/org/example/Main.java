@@ -14,6 +14,7 @@ public class Main {
 
         List<Cliente> clientes = new ArrayList<>();
         List<Pedido> pedidos_ativos = new ArrayList<>();
+        List<Pedido> pedidos_concluido = new ArrayList<>();
         Scanner entrada = new Scanner(System.in);
         int escolha = 0;
 
@@ -39,9 +40,14 @@ public class Main {
                 case 3:
                     Pedido.realizarPedido(clientes,pedidos_ativos);
                     break;
+                case 4:
+                    System.out.println("Insira o numero do pedido\n");
+                    Pedido.atualizarPedidos(entrada.nextInt(), pedidos_ativos, pedidos_concluido);
+                    break;
                 case 5:
                     Pedido.imprimirPedidos(pedidos_ativos, "Em andamento");
                     System.out.println(" [+] --- --- --- [+]");
+                    Pedido.imprimirPedidos(pedidos_concluido, "Concluidos");
                     break;
                 default:
                     System.out.println("Opção inválida!");
