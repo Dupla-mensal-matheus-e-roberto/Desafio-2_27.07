@@ -90,6 +90,19 @@ public class Pedido {
         }
 
     }
+
+    public static void atualizarPedidos(int index, List<Pedido> ativo, List<Pedido> concluido){
+        concluido.add(new Pedido(ativo.get(index).horario,
+                                 ativo.get(index).cliente,
+                                 ativo.get(index).quantidade_pizzas,
+                                 ativo.get(index).sabores,
+                                 ativo.get(index).previsao_entrega,
+                                 ativo.get(index).status));
+
+        ativo.remove(index);
+        System.out.println("Pedido " + index + " concluido! :)");
+    }
+
     public LocalDateTime getHorario() {
         return horario;
     }
