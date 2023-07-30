@@ -67,6 +67,60 @@ public class Cliente {
                         "Rua principal: " + clientes.get(i).getEndereco().get(0).getRua() + "\n" +
                         "Número: " + clientes.get(i).getEndereco().get(0).getNumero() + "\n" );
 
+                System.out.println("Deseja alterar alguma informação do cliente? \n1 - sim\n2 - nao\n");
+
+                Scanner scanner = new Scanner(System.in);
+                int alterar = scanner.nextInt();
+
+
+                if(alterar == 1){
+                    System.out.println("Que informação deseja alterar?\n1 - nome\n2 - idade\n3 - celular\n4 - Endereço\n");
+                    int opc = scanner.nextInt();
+
+                    switch(opc){
+                        case 1:
+                            System.out.println("Insira o nome do cliente: \n");
+                            clientes.get(i).setNome(scanner.next());
+                            System.out.println("Nome alterado com sucesso!\n");
+                            break;
+                        case 2:
+                            System.out.println("Insira a idade do cliente: \n");
+                            clientes.get(i).setIdade(scanner.nextInt());
+                            System.out.println("Idade alterado com sucesso!\n");
+                            break;
+                        case 3:
+                            System.out.println("Insira o número do celular do cliente: \n");
+                            clientes.get(i).setCelular(scanner.next());
+                            System.out.println("Número de celular alterado com sucesso!\n");
+                            break;
+                        case 4:
+                            System.out.println("Seus Endereços: ");
+                            for(int j = 0; j < clientes.get(i).getEndereco().size(); j++){
+                                System.out.println("\nEndereço " + j + "\nRua: " + clientes.get(i).getEndereco().get(j).getRua() +
+                                                   "\nNumero: " + clientes.get(i).getEndereco().get(j).getNumero());
+                            }
+
+                            System.out.println("\nQual endereço você dejesa alterar? \n");
+
+                            int opcao = scanner.nextInt();
+
+                            for(int j = 0; j < clientes.get(i).getEndereco().size(); j++){
+                                if (opcao == j){
+                                    System.out.println("Insira a rua do cliente: \n");
+                                    clientes.get(i).getEndereco().get(j).setRua(scanner.next());
+
+                                    System.out.println("Insira o número da casa do cliente: \n");
+                                    clientes.get(i).getEndereco().get(j).setNumero(scanner.nextInt());
+
+                                    System.out.println("Endereço alterado com sucesso!\n");
+                                    break;
+                                }
+                            }
+                            break;
+                    }
+                } else if(alterar == 2){
+                    break;
+                }
             }
             else{
                 System.out.println("Nenhum cliente encontrado!\n");
@@ -75,7 +129,6 @@ public class Cliente {
     }
 
     public static void alterarCliente(int index,List<Cliente> clientes){
-
     }
 
     public String getNome() {
