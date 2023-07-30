@@ -1,6 +1,7 @@
 package org.example;
 
 import org.example.entity.Cliente;
+import org.example.entity.Pedido;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -12,6 +13,7 @@ public class Main {
     public static void main(String[] args) {
 
         List<Cliente> clientes = new ArrayList<>();
+        List<Pedido> pedidos_ativos = new ArrayList<>();
         Scanner entrada = new Scanner(System.in);
         int escolha = 0;
 
@@ -33,6 +35,13 @@ public class Main {
                 case 2:
                     System.out.println("Insira o nome do cliente que deseja encontrar \n");
                     Cliente.encontrarCliente(entrada.next(),clientes);
+                    break;
+                case 3:
+                    Pedido.realizarPedido(clientes,pedidos_ativos);
+                    break;
+                case 5:
+                    Pedido.imprimirPedidos(pedidos_ativos, "Em andamento");
+                    System.out.println(" [+] --- --- --- [+]");
                     break;
                 default:
                     System.out.println("Opção inválida!");
