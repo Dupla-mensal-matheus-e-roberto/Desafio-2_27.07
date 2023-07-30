@@ -11,6 +11,7 @@ public class Cliente {
     private String celular;
     private List<Endereco> endereco;
 
+    public Cliente(){}
     public Cliente(String nome, int idade, String celular, List<Endereco> endereco){
         this.nome = nome;
         this.idade = idade;
@@ -67,9 +68,6 @@ public class Cliente {
                         "Rua principal: " + clientes.get(i).getEndereco().get(0).getRua() + "\n" +
                         "Número: " + clientes.get(i).getEndereco().get(0).getNumero() + "\n" );
 
-            }
-            else{
-                System.out.println("Nenhum cliente encontrado!\n");
             }
         }
     }
