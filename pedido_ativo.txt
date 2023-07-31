@@ -1,0 +1,7 @@
+Horário: 2023-07-31T19:56:48.124339831
+Cliente: org.example.entity.Cliente@723279cf
+Quantidade de Pizzas: 2
+Sabores: [Porra, Cola, Chorume]
+Previsão de Entrega: 2023-07-31T20:41:48.124821889
+Status: Em andamento
+
