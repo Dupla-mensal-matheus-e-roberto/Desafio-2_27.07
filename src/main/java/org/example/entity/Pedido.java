@@ -75,7 +75,7 @@ public class Pedido {
             for (Pedido pedido : pedidos) {
                 writer.write("Horário: " + pedido.getHorario());
                 writer.newLine();
-                writer.write("Cliente: " + pedido.getCliente());
+                writer.write("Cliente: " + pedido.getCliente().getNome());
                 writer.newLine();
                 writer.write("Quantidade de Pizzas: " + pedido.getQuantidade_pizzas());
                 writer.newLine();
@@ -125,7 +125,7 @@ public static void imprimirPedidos(List<Pedido> pedidos, String status){
                                  ativo.get(index).quantidade_pizzas,
                                  ativo.get(index).sabores,
                                  ativo.get(index).previsao_entrega,
-                                 ativo.get(index).status));
+                                 "Concluido"));
 
         ativo.remove(index);
         System.out.println("Pedido " + index + " concluido! :)");

@@ -1,0 +1,7 @@
+Horário: 2023-07-31T20:05:56.801841513
+Cliente: Matheus
+Quantidade de Pizzas: 1
+Sabores: [Porra, Cola, Calabresa]
+Previsão de Entrega: 2023-07-31T20:50:56.802116893
+Status: Concluido
+
