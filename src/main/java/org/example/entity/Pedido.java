@@ -1,5 +1,8 @@
 package org.example.entity;
 
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
@@ -67,9 +70,34 @@ public class Pedido {
         System.out.println("Pedido efetuado com sucesso!");
     }
 
+    public static void escreverListaEmArquivo(List<Pedido> pedidos, String caminhoArquivo) {
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(caminhoArquivo))) {
+            for (Pedido pedido : pedidos) {
+                writer.write("Horário: " + pedido.getHorario());
+                writer.newLine();
+                writer.write("Cliente: " + pedido.getCliente());
+                writer.newLine();
+                writer.write("Quantidade de Pizzas: " + pedido.getQuantidade_pizzas());
+                writer.newLine();
+                writer.write("Sabores: " + pedido.getSabores());
+                writer.newLine();
+                writer.write("Previsão de Entrega: " + pedido.getPrevisao_entrega());
+                writer.newLine();
+                writer.write("Status: " + pedido.getStatus());
+                writer.newLine();
+                writer.newLine();
+                System.out.println("Conteúdo da lista gravado com sucesso no arquivo.");
+            }
+        }catch(IOException e){
+                System.err.println("Erro ao escrever no arquivo: " + e.getMessage());
+            }
+        }
 
 
-    public static void imprimirPedidos(List<Pedido> pedidos, String status){
+
+
+
+public static void imprimirPedidos(List<Pedido> pedidos, String status){
         String sabores = "";
         System.out.println("Pedidos " + status + "\n");
         for(int i = 0; i < pedidos.size(); i++){

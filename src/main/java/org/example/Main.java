@@ -25,7 +25,8 @@ public class Main {
                     "2 - Encontrar ou Alterar clientes registrados \n" +
                     "3 - Novo pedido \n" +
                     "4 - Atualizar pedido \n" +
-                    "5 - Resumo de pedidos \n \n");
+                    "5 - Resumo de pedidos \n" +
+                    "6 - Emitir TXT de entrega \n\n");
 
             escolha = entrada.nextInt();
 
@@ -48,6 +49,10 @@ public class Main {
                     Pedido.imprimirPedidos(pedidos_ativos, "Em andamento");
                     System.out.println(" [+] --- --- --- [+]");
                     Pedido.imprimirPedidos(pedidos_concluido, "Concluidos");
+                    break;
+                case 6:
+                    Pedido.escreverListaEmArquivo(pedidos_ativos,"pedido_ativo.txt");
+                    Pedido.escreverListaEmArquivo(pedidos_concluido,"pedido_concluido.txt");
                     break;
                 default:
                     System.out.println("Opção inválida!");
